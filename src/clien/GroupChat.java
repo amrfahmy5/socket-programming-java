@@ -1,4 +1,3 @@
-
 package clien;
 
 import java.io.IOException;
@@ -8,6 +7,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class GroupChat {
  int port;
@@ -36,12 +36,13 @@ public class GroupChat {
     }
      public void broadcast() throws SocketException, UnknownHostException, IOException
    {
-       
        DatagramSocket socket = new DatagramSocket();
-       int size = 0;//get size of file
+       FileRW f = new FileRW() ;
+       Vector <String>arr=f.Read();
+       int size = arr.size();
        for(int i=0;i<size;i++)
        {
-           //read address from file
+           this.address=arr.elementAt(i);
            socket.connect(InetAddress.getByName(address), this.port);
            byte buf1[] = new byte[1000];
            
