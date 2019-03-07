@@ -42,9 +42,15 @@ public class connect extends Thread  {
         String s1 ="" , s2 = "";
          while(!s1.equals("Bye"))
         {
+           
+                       //=---------Send------------
+
             s1 = bf.readLine();
             out.writeUTF(s1);
             out.flush();
+            //---------Recieve--------
+            s2 = in.readUTF();
+            System.out.println("\t Server : "+s2);
         }
         
               out.close();
@@ -57,8 +63,8 @@ public class connect extends Thread  {
     {
         ServerSocket s = new ServerSocket(port);
          Socket c = s.accept();
-        System.out.println(c.getLocalAddress()+"  Is Connected Successfully");
-         
+        System.out.println("Sender With local address:"+c.getLocalAddress()+"  Is Connected Successfully");
+         System.out.println("-----------------------------------------------------------");
 	
         DataInputStream in = new DataInputStream(c.getInputStream());
 	
@@ -70,10 +76,10 @@ public class connect extends Thread  {
         while(!s1.equals("Bye"))
         {
             s1 = in.readUTF();
-            System.out.println(c.getLocalAddress()+" : "+s1);
+            System.out.println("\tSender LA(" +c.getLocalAddress()+") : "+s1);
             s2 = bf.readLine();
             out.writeUTF(s2);
-	
+
             out.flush();
         }
         out.close();

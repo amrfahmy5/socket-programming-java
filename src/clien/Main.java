@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
-public class c {
+public class Main {
    private static Scanner inputs = new Scanner(System.in);
-    public static void main(String[] args) throws UnknownHostException, IOException {
+    public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
         
         System.out.println("1-for 1 to 1 communication");
         System.out.println("2-for 1 to Group communication");
@@ -21,9 +23,41 @@ public class c {
       connect R = new connect(port);
         connect S = new connect(address,port);
     
-        R.recieve();
-        S.send();
+        
+        Thread thread1 = new Thread() {
+    public void run()  {
+        try {
+            R.recieve();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+            };
+      Thread thread2 = new Thread() {
+    public void run()  {
+        try {
+            S.send();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            };
+
+thread1.start();
+thread2.start();
+thread1.join();
+thread2.join();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         else if(check==2)
         {

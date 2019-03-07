@@ -31,11 +31,12 @@ public class GroupChat {
         DatagramPacket dp = new DatagramPacket(buf,message.length(),InetAddress.getByName(address), port);
         socket.send(dp);
              } 
-             System.out.println("...All Done....");
+             System.out.println("...Chat ended....");
              socket.close();
     }
      public void broadcast() throws SocketException, UnknownHostException, IOException
    {
+       
        DatagramSocket socket = new DatagramSocket();
        int size = 0;//get size of file
        for(int i=0;i<size;i++)
