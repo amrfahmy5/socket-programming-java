@@ -23,8 +23,8 @@ public class Main {
         if (check == 1) {
             System.out.println("Please Enter Port Number: ");
             port = inputs.nextInt();
-            connect R = new connect(port);
-            connect S = new connect(address, port);
+            OneToOne R = new OneToOne(port);
+            OneToOne S = new OneToOne(address, port);
 
             Thread thread1 = new Thread() {
                 public void run() {
@@ -46,26 +46,14 @@ public class Main {
             };
 
             thread1.start();
-            
             thread2.start();
-            sleep(1000000000);
-         //   thread1.join();
-         //   thread2.join();
+            thread1.join();
+            thread2.join();
         } 
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         else if (check == 2) {
-            System.out.print("If you need Add member to Group enter only 1 :");
+            System.out.print("If you need Add member to Group enter  1 :");
             check = inputs.nextInt();
             if (check == 1) {
                 System.out.print("Enter Num of Member:");
@@ -75,15 +63,18 @@ public class Main {
                     file.Write(inputs.next());
                 }
             }
-                System.out.println("Please Enter Port Number of the group you want to connect with: ");
-                port = inputs.nextInt();
-                
-                GroupChat gc = new GroupChat(port);
-  
+            System.out.println("Please Enter Port Number of the group you want to connect with: ");
+            port = inputs.nextInt();
+
+            GroupChat gc = new GroupChat(port);
+            while (true) {
+                System.out.println("End the Message");
+                String message = inputs.next();
                 Thread thread1 = new Thread() {
                     public void run() {
                         try {
-                            gc.broadcast();
+                          //  gc.broadcast();
+                            gc.BbyMS();
                         } catch (IOException ex) {
                             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -92,7 +83,7 @@ public class Main {
                 Thread thread2 = new Thread() {
                     public void run() {
                         try {
-                            gc.send();
+                            gc.send(message);
                         } catch (IOException ex) {
                             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -102,9 +93,11 @@ public class Main {
                 thread2.start();
                 thread1.join();
                 thread2.join();
+                if (message == "Bye") {
+                    break;
+                }
             }
-            
-         else {
+        } else {
             System.out.println("Please Enter 1 or 2");
         }
 

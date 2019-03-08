@@ -1,4 +1,3 @@
-
 package clien;
 
 import java.io.BufferedReader;
@@ -17,18 +16,18 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
-public class connect extends Thread  {
+public class OneToOne {
     private Socket socket = null;
     private int port;
     private String  address;
-   public connect(String ip,int p) throws IOException
+   public OneToOne(String ip,int p) throws IOException
     {
         this.port=p;
         this.address = ip;
         
         
     }
-   public connect(int p)
+   public OneToOne(int p)
    {
        this.port=p;
    }
