@@ -13,22 +13,18 @@ public class FileRW {
     private String fileName = "sample.txt";
     private Vector<String> arr;
 
-    public Vector<String> Read() {
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+    public Vector<String> Read() throws FileNotFoundException, IOException {
+arr = new Vector<String>();
+ FileReader fr = new FileReader("sample.txt");
+        try (BufferedReader bufferedReader = new BufferedReader(fr)) {
             String line = bufferedReader.readLine();
             while (line != null) {
-                System.out.println(line);
+              //  System.out.println(line);
                 line = bufferedReader.readLine();
                 arr.add(line);
-
             }
-
-        } catch (FileNotFoundException e) {
-            // exception handling
-        } catch (IOException e) {
-            // exception handling
         }
+       fr.close();
         return arr;
     }
 
@@ -36,11 +32,12 @@ public class FileRW {
         // write the content in file 
         FileWriter fw = new FileWriter("sample.txt", true);
         try (BufferedWriter bufferedWriter = new BufferedWriter(fw)) {
-            String fileContent = ip;
+            String fileContent = ip+"\n";
             bufferedWriter.write(fileContent);
         } catch (IOException e) {
             // exception handling
         }
+        fw.close();
 
     }
 }

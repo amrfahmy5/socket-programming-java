@@ -14,29 +14,36 @@ public class GroupChat {
     String address;
    DatagramSocket socket ;
        public static Scanner input = new Scanner(System.in);
+public GroupChat(int p) throws SocketException{
+ socket = new DatagramSocket() ;
+    this.port=p;
 
+}
        public GroupChat(String ad, int p) throws SocketException, UnknownHostException 
     {
         
         this.port = p;
-        socket = new DatagramSocket() ;
+       
         this.address = ad;
         socket.connect(InetAddress.getByName(address), port);
+        socket.setBroadcast(true);
     }
         public void send() throws IOException {
-             String message = null ;
+            System.out.print("Enter the Message: ");
+             String message = input.next() ;
+              
              while(!message.equals("Bye")){
           message = input.next();
         byte buf[] = message.getBytes();
         DatagramPacket dp = new DatagramPacket(buf,message.length(),InetAddress.getByName(address), port);
         socket.send(dp);
-             } 
+             }
              System.out.println("...Chat ended....");
              socket.close();
     }
      public void broadcast() throws SocketException, UnknownHostException, IOException
    {
-       DatagramSocket socket = new DatagramSocket();
+            socket = new DatagramSocket();
        FileRW f = new FileRW() ;
        Vector <String>arr=f.Read();
        int size = arr.size();
@@ -47,11 +54,12 @@ public class GroupChat {
            byte buf1[] = new byte[1000];
            
         DatagramPacket dptorec = new DatagramPacket(buf1, buf1.length);
-        socket.receive(dptorec);
+      //  socket.receive(dptorec);
         System.out.println(socket.getInetAddress()+" : Received data : " +dptorec.getData());
+       }
        }
        
        
    }
     
-}
+
