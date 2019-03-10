@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Clien">
+  <ClassDiagramComponents>
+    <Class name="FakeDataGenerator" package="clien" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="data" type="String" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="data"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="getData" returnType="String" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="FilesInterface" package="clien" visibility="public" xPosition="158.0" yPosition="269.0">
+      <Fields>
+        <Field name="fileName" type="String" visibility="private" isFinal="true"/>
+        <Field name="Ips" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="msgs" type="ArrayList&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Write" returnType="void" visibility="public">
+          <Argument type="String" name="ip"/>
+          <Argument type="String" name="msg"/>
+        </Method>
+        <Method name="WriteM" returnType="void" visibility="public">
+          <Argument type="String" name="ip"/>
+        </Method>
+        <Method name="Read" returnType="void" visibility="public"/>
+        <Method name="ReadM" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="clien" visibility="public" xPosition="319.0" yPosition="77.0">
+      <Fields>
+        <Field name="inputs" type="Scanner" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MultiSocket" package="clien" visibility="public" xPosition="607.0" yPosition="39.0">
+      <Fields>
+        <Field name="socket" type="MulticastSocket" visibility="protected"/>
+        <Field name="buf" type="byte[]" visibility="protected"/>
+        <Field name="Ips" type="ArrayList&lt;String&gt;" visibility="package"/>
+        <Field name="port" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="port"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OneToOne" package="clien" visibility="public" xPosition="452.0" yPosition="269.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="port" type="int" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="ip"/>
+          <Argument type="int" name="p"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="send" returnType="void" visibility="public"/>
+        <Method name="recieve" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="peer" package="clien" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="multicast" returnType="void" visibility="public">
+          <Argument type="String" name="multicastMessage"/>
+          <Argument type="int" name="port"/>
+          <Argument type="String" name="address"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sender" package="clien" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="port" type="int" visibility="package"/>
+        <Field name="address" type="String" visibility="package"/>
+        <Field name="socket" type="DatagramSocket" visibility="package"/>
+        <Field name="dptorec" type="DatagramPacket" visibility="package"/>
+        <Field name="message" type="String" visibility="package"/>
+        <Field name="input" type="Scanner" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="p"/>
+          <Argument type="String" name="ad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
