@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/connect.java</file>
-            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/GroupChat.java</file>
-            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/c.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/FakeDataGenerator.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/MultiSocket.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/Sender.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/FilesInterface.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/Main.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/OneToOne.java</file>
+            <file>file:/C:/Users/amr/Desktop/p2pgoma/Clien/src/clien/peer.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,20 +1,10 @@
 package clien;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.util.Arrays;
+
+import java.io.*;
+
+import java.net.*;
+import java.util.*;
 
 public class OneToOne {
     private Socket socket = null;
@@ -42,8 +32,7 @@ public class OneToOne {
          while(!s1.equals("Bye"))
         {
            
-                       //=---------Send------------
-
+            //=---------Send------------
             s1 = bf.readLine();
             out.writeUTF(s1);
             out.flush();
