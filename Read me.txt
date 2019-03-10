@@ -1,0 +1,13 @@
+1-enter 1 to star 1 to 1 communication.
+2-enter 2 to start group commuinication.
+3-if need to add more member in group enter 1 then enter the ip of memper should start with 132.x.x.x.
+"run the prog for the number you want to be in user"
+4-enter the port number of chat to can communicate.
+4- enter your ip to can commuincate  with the group.
+5-start the chat .
+6-to end the chat enter "end" to can exit the communicate.
+
+
+
+note: the chat will store in file name "chat".
+note: the ip of the member of group will be store in file named "member".
